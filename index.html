@@ -235,112 +235,7 @@
             font-weight: bold;
         }
     </style>
-</head>
-<body>
-
-<section id="home" class="content-section active-section">
-    <div class="cover-photo"></div>
-    <div class="profile-section">
-        <div class="profile-img"></div>
-        <div class="intro-box">
-            <h2>🪿💖 : ˚꒰ welcome to bebby ꒱</h2>
-            <p>สั่งซื้อ / สอบถามทักไลน์ หรือ DM message</p>
-            <p><strong>Admin Ice / Bebby</strong></p>
-            <p class="line-info"><i class="fab fa-line"></i> line : @741eynzz (มี@)</p>
-            
-            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
-            
-            <p>𓈒 —🐈‍⬛ งานป้ายเริ่มต้น 49 - 599฿ มีราคาเหมา 3 ป้ายขึ้นไป ┊</p>
-            <p>รองาน 1 - 14 วันตามคิว ( สอบถามคิวงานก่อนได้ค่ะ )</p>
-            <p>📓 คิดราคาตามรายละเอียดของงาน ปรึกษาได้น้า💡🧸</p>
-
-            <a href="https://drive.google.com/drive/folders/1x3qtzrZDN9xQmhgP2O4LZGkTSUWg92kG" class="drive-link-box" target="_blank">
-                <i class="fas fa-folder-open"></i> 📁 : ส่งงานผ่าน Google Drive เท่านั้น ! <br>
-                <small>(คลิกที่นี่เพื่อเปิดดูโฟลเดอร์)</small>
-            </a>
-            
-            <p style="margin-top: 15px;"><i class="fas fa-check-circle" style="color: #4cd137;"></i> บรีฟงานได้ทุกอย่าง ข้อมูลลูกค้าต้องพกเตรียมมาเอง</p>
-
-            <h3>Hard Skills</h3>
-            <div class="skills-container">
-                <div class="skill-badge"><i class="fas fa-paint-brush"></i> Canva</div>
-                <div class="skill-badge"><i class="fas fa-video"></i> CapCut</div>
-                <div class="skill-badge"><i class="fas fa-pen-nib"></i> ibis paint</div>
-                <div class="skill-badge"><i class="fas fa-palette"></i> Procreate</div>
-                <div class="skill-badge"><i class="fas fa-magic"></i> Clip Studio Paint</div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<nav class="bottom-bar">
-    <ul class="tabs">
-        <li class="tab-item active" onclick="showTab('home')">
-            <span class="icon">🏠</span><span class="text">Home</span>
-        </li>
-        <li class="tab-item" onclick="showTab('price')">
-            <span class="icon">💸</span><span class="text">Price</span>
-        </li>
-        <li class="tab-item" onclick="showTab('step')">
-            <span class="icon">🐾</span><span class="text">Step</span>
-        </li>
-        <li class="tab-item" onclick="showTab('example')">
-            <span class="icon">🖼️</span><span class="text">Example</span>
-        </li>
-        <li class="tab-item" onclick="showTab('contact')">
-            <span class="icon">💌</span><span class="text">Contact</span>
-        </li>
-    </ul>
-</nav>
-
-<script>
-    // สคริปต์สลับหน้า
-    function showTab(tabId) {
-        document.querySelectorAll('.content-section').forEach(section => {
-            section.classList.remove('active-section');
-        });
-        document.querySelectorAll('.tab-item').forEach(tab => {
-            tab.classList.remove('active');
-        });
-        
-        // สมมติว่ามี id อื่นๆ รออยู่ (เราจะสร้างในพาร์ทต่อไป)
-        const activeSection = document.getElementById(tabId);
-        if(activeSection) {
-            activeSection.classList.add('active-section');
-        }
-        
-        event.currentTarget.classList.add('active');
-    }
-
-    // สคริปต์ลูกเล่นเวลาจิ้มหน้าจอ (Floating Emojis)
-    const emojis = ['🧸', '🪿', '🎨', '⭐️', '🍄', '💖', '✨', '🐾'];
-    
-    document.addEventListener('click', function(e) {
-        // สร้าง element ของอิโมจิ
-        const emojiEl = document.createElement('div');
-        emojiEl.className = 'click-emoji';
-        
-        // สุ่มอิโมจิจาก Array
-        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
-        emojiEl.textContent = randomEmoji;
-        
-        // วางตำแหน่งให้อยู่ตรงจุดที่เมาส์คลิก/นิ้วจิ้ม
-        emojiEl.style.left = e.pageX + 'px';
-        emojiEl.style.top = e.pageY + 'px';
-        
-        // ใส่ลงไปในหน้าเว็บ
-        document.body.appendChild(emojiEl);
-        
-        // ลบอิโมจิออกหลังจากแอนิเมชันจบ (1 วินาที)
-        setTimeout(() => {
-            emojiEl.remove();
-        }, 1000);
-    });
-</script>
-
-</body>
-</html>
-        /* -------------------------------------
+            /* -------------------------------------
            💸 หน้าราคา (Price List)
            ------------------------------------- */
         .section-title {
@@ -457,3 +352,212 @@
         .note-box li {
             margin-bottom: 8px;
         }
+
+</head>
+<body>
+
+<section id="home" class="content-section active-section">
+    <section id="price" class="content-section">
+    <h2 class="section-title">💸 Price List / เรทราคางาน 💸</h2>
+
+    <div class="price-category">
+        <div class="category-title"><i class="fas fa-paint-roller" style="color: #ff9ff3;"></i> <span>งานป้าย / กราฟิก (Graphic Design)</span></div>
+        <ul class="price-list">
+            <li class="price-item"><span class="price-name">บล็อก</span> <span class="price-normal">เริ่มต้น 99฿</span></li>
+            <li class="price-item"><span class="price-name">แนวสว่าง</span> <span class="price-normal">เริ่มต้น 45฿</span></li>
+            <li class="price-item"><span class="price-name">แนวเรียบ</span> <span class="price-normal">เริ่มต้น 45฿</span></li>
+            <li class="price-item"><span class="price-name">แนวกึ่ง ads.</span> <span class="price-normal">เริ่มต้น 59฿</span></li>
+            <li class="price-item"><span class="price-name">งานป้าย</span> <span class="price-normal">เริ่มต้น 49฿</span></li>
+            <li class="price-item"><span class="price-name">Set ปกกลุ่ม + กรอบตัวอย่าง</span> <span class="price-normal">เริ่ม 99฿</span></li>
+            <li class="price-item"><span class="price-name">ป้ายเรท</span> <span class="price-normal">เริ่มต้น 70฿ (ขึ้นอยู่กับเรท)</span></li>
+            <li class="price-item"><span class="price-name">ป้ายเบอร์เงิน/ทอง</span> <span class="price-normal">เริ่มต้น 65฿</span></li>
+            <li class="price-item"><span class="price-name">บัตรสะสมแต้ม</span> <span class="price-normal">เริ่มต้น 89฿</span></li>
+            <li class="price-item"><span class="price-name">ปก X</span> <span class="price-normal">เริ่มต้น 69฿</span></li>
+            <li class="price-item"><span class="price-name">ปกไลน์ official</span> <span class="price-normal">เริ่มต้น 80฿</span></li>
+            <li class="price-item"><span class="price-name">ริชเมนู ขนาดเล็ก</span> <span class="price-normal">เริ่มต้น 69฿</span></li>
+            <li class="price-item"><span class="price-name">ริชเมนู ขนาดใหญ่</span> <span class="price-normal">เริ่มต้น 100 - 120฿</span></li>
+            <li class="price-item"><span class="price-name">ลายน้ำใส่รูปตัวเอง</span> <span class="price-normal">เริ่มต้น 45฿</span></li>
+            <li class="price-item"><span class="price-name">ลายน้ำใส่ตัวการ์ตูน</span> <span class="price-normal">เริ่มต้น 49฿</span></li>
+        </ul>
+    </div>
+
+    <div class="price-category">
+        <div class="category-title"><i class="fas fa-certificate" style="color: #feca57;"></i> <span>ลายน้ำแบบเหมา (Watermarks)</span></div>
+        
+        <h4 style="margin-bottom: 10px; color: #ff7675;">🌈 ลายน้ำแบบสีสัน (งานละ 25฿)</h4>
+        <ul class="price-list">
+            <li class="price-item"><span class="price-name">5 งาน</span> <span class="price-value"><span class="price-normal">125฿</span></span></li>
+            <li class="price-item"><span class="price-name">10 งาน</span> <span class="price-value"><span class="price-original">250฿</span><span class="price-discount">240฿</span><span class="save-badge">ลด 10฿</span></span></li>
+            <li class="price-item"><span class="price-name">15 งาน</span> <span class="price-value"><span class="price-original">375฿</span><span class="price-discount">360฿</span><span class="save-badge">ลด 15฿</span></span></li>
+            <li class="price-item"><span class="price-name">20 งาน</span> <span class="price-value"><span class="price-original">500฿</span><span class="price-discount">470฿</span><span class="save-badge">ลด 30฿</span></span></li>
+            <li class="price-item"><span class="price-name">25 งาน</span> <span class="price-value"><span class="price-original">625฿</span><span class="price-discount">585฿</span><span class="save-badge">ลด 40฿</span></span></li>
+            <li class="price-item"><span class="price-name">30 งาน</span> <span class="price-value"><span class="price-original">750฿</span><span class="price-discount">700฿</span><span class="save-badge">ลด 50฿</span></span></li>
+            <li class="price-item"><span class="price-name">35 งาน</span> <span class="price-value"><span class="price-original">875฿</span><span class="price-discount">815฿</span><span class="save-badge">ลด 60฿</span></span></li>
+            <li class="price-item"><span class="price-name">40 งาน</span> <span class="price-value"><span class="price-original">1000฿</span><span class="price-discount">925฿</span><span class="save-badge">ลด 75฿</span></span></li>
+        </ul>
+
+        <h4 style="margin-top: 25px; margin-bottom: 10px; color: #576574;">🖤 ลายน้ำแบบสีขาว สีดำ (งานละ 15฿)</h4>
+        <ul class="price-list">
+            <li class="price-item"><span class="price-name">5 งาน</span> <span class="price-value"><span class="price-normal">75฿</span></span></li>
+            <li class="price-item"><span class="price-name">10 งาน</span> <span class="price-value"><span class="price-original">150฿</span><span class="price-discount">145฿</span><span class="save-badge">ลด 5฿</span></span></li>
+            <li class="price-item"><span class="price-name">15 งาน</span> <span class="price-value"><span class="price-original">225฿</span><span class="price-discount">210฿</span><span class="save-badge">ลด 15฿</span></span></li>
+            <li class="price-item"><span class="price-name">20 งาน</span> <span class="price-value"><span class="price-original">300฿</span><span class="price-discount">275฿</span><span class="save-badge">ลด 25฿</span></span></li>
+            <li class="price-item"><span class="price-name">25 งาน</span> <span class="price-value"><span class="price-original">375฿</span><span class="price-discount">345฿</span><span class="save-badge">ลด 30฿</span></span></li>
+            <li class="price-item"><span class="price-name">30 งาน</span> <span class="price-value"><span class="price-original">450฿</span><span class="price-discount">415฿</span><span class="save-badge">ลด 35฿</span></span></li>
+            <li class="price-item"><span class="price-name">35 งาน</span> <span class="price-value"><span class="price-original">525฿</span><span class="price-discount">480฿</span><span class="save-badge">ลด 45฿</span></span></li>
+            <li class="price-item"><span class="price-name">40 งาน</span> <span class="price-value"><span class="price-original">600฿</span><span class="price-discount">540฿</span><span class="save-badge">ลด 60฿</span></span></li>
+        </ul>
+    </div>
+
+    <div class="price-category">
+        <div class="category-title"><i class="fas fa-book" style="color: #48dbfb;"></i> <span>งานทั่วไป & การบ้าน (General & Homework)</span></div>
+        <ul class="price-list">
+            <li class="price-item"><span class="price-name">สไลด์นำเสนอ</span> <span class="price-normal">เริ่มต้นหน้าละ 20฿</span></li>
+            <li class="price-item"><span class="price-name">อินโฟกราฟิก</span> <span class="price-normal">เริ่มต้น 79฿</span></li>
+            <li class="price-item"><span class="price-name">มายแมพ (แบบพิมพ์ / แบบเขียน)</span> <span class="price-normal">เริ่ม 60฿ / 70฿</span></li>
+            <li class="price-item"><span class="price-name">เรียงความ</span> <span class="price-normal">เริ่มต้น 150฿</span></li>
+            <li class="price-item"><span class="price-name">แผ่นพับ 3 ช่อง - 6 ช่อง</span> <span class="price-normal">เริ่มต้น 79฿</span></li>
+            
+            <li class="price-item" style="padding-top: 20px; font-weight: bold; color: var(--accent-color);">📝 งานลอก</li>
+            <li class="price-item"><span class="price-name">- สมุด / ไอแพด</span> <span class="price-normal">หน้าละ 10฿</span></li>
+            <li class="price-item"><span class="price-name">- รายงาน</span> <span class="price-normal">หน้าละ 15฿</span></li>
+            <li class="price-item"><span class="price-name">- A4</span> <span class="price-normal">หน้าละ 20฿</span></li>
+
+            <li class="price-item" style="padding-top: 20px; font-weight: bold; color: var(--accent-color);">📚 การบ้าน</li>
+            <li class="price-item"><span class="price-name">- คณิตศาสตร์ (ตอบอย่างเดียว)</span> <span class="price-normal">ข้อละ 5฿</span></li>
+            <li class="price-item"><span class="price-name">- คณิตศาสตร์ (*แสดงวิธีทำ)</span> <span class="price-normal">ข้อละ 10฿</span></li>
+            <li class="price-item"><span class="price-name">- ภาษาอังกฤษ</span> <span class="price-normal">ข้อละ 3-5฿</span></li>
+        </ul>
+    </div>
+
+    <div class="price-category">
+        <div class="category-title"><i class="fas fa-palette" style="color: #ff6b6b;"></i> <span>งานศิลปะ & ออกแบบ (Art & Design)</span></div>
+        <ul class="price-list">
+            <li class="price-item"><span class="price-name">วาดภาพ</span> <span class="price-normal">เริ่มต้น 70฿</span></li>
+            <li class="price-item"><span class="price-name">หนังสือเล่มเล็ก</span> <span class="price-normal">เริ่มต้น 99฿</span></li>
+            <li class="price-item"><span class="price-name">ป๊อปอัพ</span> <span class="price-normal">เริ่มต้น 150฿</span></li>
+            <li class="price-item"><span class="price-name">วาดลายเส้น</span> <span class="price-normal">เริ่มต้น 70฿</span></li>
+            <li class="price-item"><span class="price-name">วาดลายไทย</span> <span class="price-normal">เริ่มต้น 80฿</span></li>
+            
+            <li class="price-item" style="padding-top: 20px; font-weight: bold; color: var(--accent-color);">🎨 งานออกแบบ (มีข้อมูลให้ / ไม่มีข้อมูลให้)</li>
+            <li class="price-item"><span class="price-name">- โปสเตอร์</span> <span class="price-normal">60฿ / 65฿</span></li>
+            <li class="price-item"><span class="price-name">- มายแมพ</span> <span class="price-normal">60฿ / 65฿</span></li>
+            <li class="price-item"><span class="price-name">- แผ่นพับ</span> <span class="price-normal">70฿ / 80฿</span></li>
+            <li class="price-item"><span class="price-name">- เรซูเม่</span> <span class="price-normal">60฿ / -</span></li>
+        </ul>
+    </div>
+
+    <div class="note-box">
+        <strong>📌 หมายเหตุเพิ่มเติม:</strong>
+        <ul>
+            <li>ร้านมีบริการส่งงานเป็นพัสดุทั่วประเทศไทย 📦</li>
+            <li>ราคาขึ้นอยู่กับความยากง่าย + ระยะเวลาการทำงาน</li>
+            <li><strong>งานเร่งบวกราคาเพิ่ม 50-150฿ ⚡</strong></li>
+            <li>งานประเภทอื่นๆ สอบถามทักไลน์ได้เลยนะคะ</li>
+            <li>ทุกงานทำเป็นความลับ ระหว่างลูกค้ากับทีมงาน 🤫</li>
+            <li>รองานปกติ 5-12 วัน</li>
+        </ul>
+    </div>
+</section>
+
+    <div class="cover-photo"></div>
+    <div class="profile-section">
+        <div class="profile-img"></div>
+        <div class="intro-box">
+            <h2>🪿💖 : ˚꒰ welcome to bebby ꒱</h2>
+            <p>สั่งซื้อ / สอบถามทักไลน์ หรือ DM message</p>
+            <p><strong>Admin Ice / Bebby</strong></p>
+            <p class="line-info"><i class="fab fa-line"></i> line : @741eynzz (มี@)</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            
+            <p>𓈒 —🐈‍⬛ งานป้ายเริ่มต้น 49 - 599฿ มีราคาเหมา 3 ป้ายขึ้นไป ┊</p>
+            <p>รองาน 1 - 14 วันตามคิว ( สอบถามคิวงานก่อนได้ค่ะ )</p>
+            <p>📓 คิดราคาตามรายละเอียดของงาน ปรึกษาได้น้า💡🧸</p>
+
+            <a href="https://drive.google.com/drive/folders/1x3qtzrZDN9xQmhgP2O4LZGkTSUWg92kG" class="drive-link-box" target="_blank">
+                <i class="fas fa-folder-open"></i> 📁 : ส่งงานผ่าน Google Drive เท่านั้น ! <br>
+                <small>(คลิกที่นี่เพื่อเปิดดูโฟลเดอร์)</small>
+            </a>
+            
+            <p style="margin-top: 15px;"><i class="fas fa-check-circle" style="color: #4cd137;"></i> บรีฟงานได้ทุกอย่าง ข้อมูลลูกค้าต้องพกเตรียมมาเอง</p>
+
+            <h3>Hard Skills</h3>
+            <div class="skills-container">
+                <div class="skill-badge"><i class="fas fa-paint-brush"></i> Canva</div>
+                <div class="skill-badge"><i class="fas fa-video"></i> CapCut</div>
+                <div class="skill-badge"><i class="fas fa-pen-nib"></i> ibis paint</div>
+                <div class="skill-badge"><i class="fas fa-palette"></i> Procreate</div>
+                <div class="skill-badge"><i class="fas fa-magic"></i> Clip Studio Paint</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<nav class="bottom-bar">
+    <ul class="tabs">
+        <li class="tab-item active" onclick="showTab('home')">
+            <span class="icon">🏠</span><span class="text">Home</span>
+        </li>
+        <li class="tab-item" onclick="showTab('price')">
+            <span class="icon">💸</span><span class="text">Price</span>
+        </li>
+        <li class="tab-item" onclick="showTab('step')">
+            <span class="icon">🐾</span><span class="text">Step</span>
+        </li>
+        <li class="tab-item" onclick="showTab('example')">
+            <span class="icon">🖼️</span><span class="text">Example</span>
+        </li>
+        <li class="tab-item" onclick="showTab('contact')">
+            <span class="icon">💌</span><span class="text">Contact</span>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    // สคริปต์สลับหน้า
+    function showTab(tabId) {
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active-section');
+        });
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        
+        // สมมติว่ามี id อื่นๆ รออยู่ (เราจะสร้างในพาร์ทต่อไป)
+        const activeSection = document.getElementById(tabId);
+        if(activeSection) {
+            activeSection.classList.add('active-section');
+        }
+        
+        event.currentTarget.classList.add('active');
+    }
+
+    // สคริปต์ลูกเล่นเวลาจิ้มหน้าจอ (Floating Emojis)
+    const emojis = ['🧸', '🪿', '🎨', '⭐️', '🍄', '💖', '✨', '🐾'];
+    
+    document.addEventListener('click', function(e) {
+        // สร้าง element ของอิโมจิ
+        const emojiEl = document.createElement('div');
+        emojiEl.className = 'click-emoji';
+        
+        // สุ่มอิโมจิจาก Array
+        const randomEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        emojiEl.textContent = randomEmoji;
+        
+        // วางตำแหน่งให้อยู่ตรงจุดที่เมาส์คลิก/นิ้วจิ้ม
+        emojiEl.style.left = e.pageX + 'px';
+        emojiEl.style.top = e.pageY + 'px';
+        
+        // ใส่ลงไปในหน้าเว็บ
+        document.body.appendChild(emojiEl);
+        
+        // ลบอิโมจิออกหลังจากแอนิเมชันจบ (1 วินาที)
+        setTimeout(() => {
+            emojiEl.remove();
+        }, 1000);
+    });
+</script>
+
+</body>
+</html>
