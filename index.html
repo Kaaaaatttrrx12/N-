@@ -12,7 +12,9 @@
             --primary-pink: #ffb7c5;
             --soft-grey: #f4f4f4;
             --dark-text: #444;
-            --accent-color: #74b9ff;
+            --accent-color: #74b9ff; /* สีฟ้าอ่อนสำหรับเน้น */
+            --bottom-bar-bg: rgba(255, 255, 255, 0.7); /* พื้นหลังโปร่งใสสำหรับ glassmorphism */
+            --bottom-bar-border: rgba(255, 255, 255, 0.3);
         }
 
         body {
@@ -21,36 +23,96 @@
             padding: 0;
             background-color: #fffafb;
             color: var(--dark-text);
+            padding-bottom: 100px; /* เพิ่ม padding ด้านล่างเพื่อไม่ให้เนื้อหาถูก Navbar บัง */
+            transition: 0.3s;
         }
 
-        /* ส่วนของแถบเมนู (Tabs) */
-        nav {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
+        /* ส่วนของแถบเมนู (Bottom Bar ใหม่แบบ Glassmorphism) */
+        .bottom-bar {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            max-width: 90%;
+            background: var(--bottom-bar-bg);
+            backdrop-filter: blur(12px); /* เอฟเฟกต์เบลอหลัง */
+            -webkit-backdrop-filter: blur(12px); /* สำหรับ Safari */
+            border: 1px solid var(--bottom-bar-border);
+            border-radius: 50px; /* ขอบโค้งมน */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             z-index: 1000;
+            display: flex;
+            justify-content: center;
         }
 
         .tabs {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             list-style: none;
             padding: 0;
             margin: 0;
+            width: 100%;
         }
 
         .tab-item {
-            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px; /* กำหนดความกว้างของแต่ละไอคอน */
+            height: 70px;
             cursor: pointer;
-            transition: 0.3s;
-            font-weight: 500;
-            border-bottom: 3px solid transparent;
+            transition: 0.3s ease-out;
+            border-radius: 50%; /* โค้งมนเพื่อให้พื้นหลัง hover เป็นวงกลม */
+            position: relative;
         }
 
-        .tab-item:hover, .tab-item.active {
-            color: var(--primary-pink);
-            border-bottom: 3px solid var(--primary-pink);
+        .tab-item:hover {
+            background-color: rgba(255, 183, 197, 0.1); /* พื้นหลังสีชมพูอ่อนเมื่อ hover */
+        }
+
+        .tab-item.active {
+            color: #fff; /* ไอคอนสีขาวเมื่อ active */
+            background-color: var(--accent-color); /* พื้นหลังสีฟ้าสดใสเมื่อ active */
+        }
+
+        /* Icons in the tab-items */
+        .tab-item i {
+            font-size: 2rem; /* ขนาดไอคอนใหญ่ */
+            display: block;
+        }
+
+        /* Tooltip label for each icon */
+        .tab-item::after {
+            content: attr(data-tab); /* แสดงชื่อแท็บจาก data attribute */
+            position: absolute;
+            bottom: -30px; /* วางใต้ไอคอน */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0,0,0,0.7);
+            color: #fff;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+
+        .tab-item:hover::after,
+        .tab-item.active::after {
+            opacity: 1; /* แสดง tooltip เมื่อ hover หรือ active */
+        }
+
+        /* Pulse animation on click for icons */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .tab-item:active i {
+            animation: pulse 0.3s ease-out; /* ลูกเล่นการสั่นเล็กน้อยเมื่อคลิก */
         }
 
         /* ส่วนของ Content */
@@ -59,7 +121,7 @@
             max-width: 1000px;
             margin: 20px auto;
             padding: 20px;
-            animation: fadeIn 0.5s ease;
+            animation: fadeIn 0.8s ease-out; /* เอฟเฟกต์ Fade In และลอยขึ้น */
         }
 
         .active-section {
@@ -67,7 +129,7 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -82,6 +144,14 @@
 
         .profile-section {
             text-align: center;
+            position: relative;
+        }
+
+        /* Float animation for the profile picture */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         .profile-img {
@@ -92,6 +162,8 @@
             background: #ddd url('URL_รูปโปรไฟล์ของคุณ') center/cover;
             margin: 0 auto;
             position: relative;
+            animation: float 4s ease-in-out infinite; /* ใส่ลูกเล่นการลอยแบบ infinite */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .intro-box {
@@ -100,11 +172,13 @@
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             margin-top: 20px;
+            position: relative;
+            z-index: 1;
         }
 
+        /* ลบ GIF เก่าโดยใช้ display: none; */
         .gif-decoration {
-            width: 80px; /* ปรับขนาด GIF ตามชอบ */
-            margin-bottom: 10px;
+            display: none !important;
         }
 
         .skills-container {
@@ -115,24 +189,33 @@
             margin-top: 20px;
         }
 
+        /* Improved style for Skill Badges */
         .skill-badge {
-            background: var(--soft-grey);
-            padding: 10px 20px;
+            background: #fff; /* ใช้พื้นหลังกล่อง */
+            padding: 12px 24px;
             border-radius: 50px;
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            gap: 10px;
+            font-size: 1rem;
+            border: 1px solid var(--soft-grey);
+            transition: 0.3s;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
-        .skill-badge img {
-            width: 20px;
+        .skill-badge:hover {
+            transform: translateY(-3px); /* ลอยขึ้นเล็กน้อยเมื่อ hover */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .skill-badge i {
+            font-size: 1.3rem; /* ขนาดไอคอน Hard Skill */
         }
 
         .drive-link-box {
             background: rgba(116, 185, 255, 0.1);
             border: 2px dashed var(--accent-color);
-            padding: 15px;
+            padding: 20px;
             border-radius: 15px;
             margin-top: 20px;
             text-decoration: none;
@@ -140,11 +223,34 @@
             display: block;
             text-align: center;
             transition: 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .drive-link-box:hover {
             background: var(--accent-color);
             color: white;
+            transform: scale(1.02); /* ขยายใหญ่ขึ้นเล็กน้อย */
+        }
+
+        /* Shimmer effect for the drive link box on hover */
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .drive-link-box::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .drive-link-box:hover::after {
+            animation: shimmer 0.6s ease; /* เอฟเฟกต์เงาวิ่ง */
         }
 
         /* ตกแต่งปุ่มและลิงค์อื่นๆ */
@@ -156,22 +262,11 @@
 </head>
 <body>
 
-<nav>
-    <ul class="tabs">
-        <li class="tab-item active" onclick="showTab('home')">Home</li>
-        <li class="tab-item" onclick="showTab('price')">Price</li>
-        <li class="tab-item" onclick="showTab('step')">Step</li>
-        <li class="tab-item" onclick="showTab('example')">Example</li>
-        <li class="tab-item" onclick="showTab('contact')">Contact</li>
-    </ul>
-</nav>
-
 <section id="home" class="content-section active-section">
     <div class="cover-photo"></div>
     <div class="profile-section">
         <div class="profile-img"></div>
         <div class="intro-box">
-            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKMG7X8f0xH5uTe/giphy.gif" class="gif-decoration" alt="welcome-gif">
             <h2>🪿💖 : ˚꒰ welcome to bebby ꒱</h2>
             <p>สั่งซื้อ / สอบถามทักไลน์ หรือ DM message</p>
             <p><strong>Admin Ice / Bebby</strong></p>
@@ -202,6 +297,16 @@
     </div>
 </section>
 
+<nav class="bottom-bar">
+    <ul class="tabs">
+        <li class="tab-item active" data-tab="Home" onclick="showTab('home')"><i class="fas fa-home"></i></li>
+        <li class="tab-item" data-tab="Price" onclick="showTab('price')"><i class="fas fa-receipt"></i></li>
+        <li class="tab-item" data-tab="Step" onclick="showTab('step')"><i class="fas fa-project-diagram"></i></li>
+        <li class="tab-item" data-tab="Example" onclick="showTab('example')"><i class="fas fa-image"></i></li>
+        <li class="tab-item" data-tab="Contact" onclick="showTab('contact')"><i class="fas fa-id-badge"></i></li>
+    </ul>
+</nav>
+
 <script>
     function showTab(tabId) {
         // ซ่อนทุก section
@@ -213,9 +318,13 @@
             tab.classList.remove('active');
         });
         // แสดง section ที่เลือก
-        document.getElementById(tabId).classList.add('active-section');
+        const activeSection = document.getElementById(tabId);
+        activeSection.classList.add('active-section');
+        
         // เพิ่ม class active ให้ tab ที่คลิก
         event.currentTarget.classList.add('active');
+        
+        // Pulse on icon click and Fade in are already handled by CSS
     }
 </script>
 
