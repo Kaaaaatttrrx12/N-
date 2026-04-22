@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bebby Portfolio - GitHub Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-pink: #ffb7c5;
+            --soft-grey: #f4f4f4;
+            --dark-text: #444;
+            --accent-color: #74b9ff;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fffafb;
+            color: var(--dark-text);
+        }
+
+        /* ส่วนของแถบเมนู (Tabs) */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .tab-item {
+            padding: 15px 25px;
+            cursor: pointer;
+            transition: 0.3s;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-item:hover, .tab-item.active {
+            color: var(--primary-pink);
+            border-bottom: 3px solid var(--primary-pink);
+        }
+
+        /* ส่วนของ Content */
+        .content-section {
+            display: none;
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .active-section {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* หน้า Home (Portfolio) */
+        .cover-photo {
+            width: 100%;
+            height: 250px;
+            background: #eee url('URL_รูปปกหลังของคุณ') center/cover;
+            border-radius: 15px;
+            margin-bottom: -60px;
+        }
+
+        .profile-section {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #fff;
+            background: #ddd url('URL_รูปโปรไฟล์ของคุณ') center/cover;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .intro-box {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            margin-top: 20px;
+        }
+
+        .gif-decoration {
+            width: 80px; /* ปรับขนาด GIF ตามชอบ */
+            margin-bottom: 10px;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background: var(--soft-grey);
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .skill-badge img {
+            width: 20px;
+        }
+
+        .drive-link-box {
+            background: rgba(116, 185, 255, 0.1);
+            border: 2px dashed var(--accent-color);
+            padding: 15px;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-decoration: none;
+            color: var(--accent-color);
+            display: block;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .drive-link-box:hover {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* ตกแต่งปุ่มและลิงค์อื่นๆ */
+        .line-info {
+            color: #06C755;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <ul class="tabs">
+        <li class="tab-item active" onclick="showTab('home')">Home</li>
+        <li class="tab-item" onclick="showTab('price')">Price</li>
+        <li class="tab-item" onclick="showTab('step')">Step</li>
+        <li class="tab-item" onclick="showTab('example')">Example</li>
+        <li class="tab-item" onclick="showTab('contact')">Contact</li>
+    </ul>
+</nav>
+
+<section id="home" class="content-section active-section">
+    <div class="cover-photo"></div>
+    <div class="profile-section">
+        <div class="profile-img"></div>
+        <div class="intro-box">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJqZ3R4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4bmV4JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/3o7TKMG7X8f0xH5uTe/giphy.gif" class="gif-decoration" alt="welcome-gif">
+            <h2>🪿💖 : ˚꒰ welcome to bebby ꒱</h2>
+            <p>สั่งซื้อ / สอบถามทักไลน์ หรือ DM message</p>
+            <p><strong>Admin Ice / Bebby</strong></p>
+            <p class="line-info"><i class="fab fa-line"></i> line : @741eynzz (มี@)</p>
+            
+            <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+            
+            <p>𓈒 —🐈‍⬛ งานป้ายเริ่มต้น 49 - 599฿ มีราคาเหมา 3 ป้ายขึ้นไป ┊</p>
+            <p>รองาน 1 - 14 วันตามคิว ( สอบถามคิวงานก่อนได้ค่ะ )</p>
+            <p>📓 คิดราคาตามรายละเอียดของงาน ปรึกษาได้น้า💡🧸</p>
+
+            <a href="https://drive.google.com/drive/folders/1x3qtzrZDN9xQmhgP2O4LZGkTSUWg92kG" class="drive-link-box" target="_blank">
+                <i class="fas fa-folder-open"></i> 📁 : ส่งงานผ่าน Google Drive เท่านั้น ! <br>
+                <small>(คลิกที่นี่เพื่อเปิดดูโฟลเดอร์)</small>
+            </a>
+            
+            <p style="margin-top: 15px;"><i class="fas fa-check-circle" style="color: #4cd137;"></i> บรีฟงานได้ทุกอย่าง ข้อมูลลูกค้าต้องพกเตรียมมาเอง</p>
+
+            <h3>Hard Skills</h3>
+            <div class="skills-container">
+                <div class="skill-badge"><i class="fas fa-paint-brush"></i> Canva</div>
+                <div class="skill-badge"><i class="fas fa-video"></i> CapCut</div>
+                <div class="skill-badge"><i class="fas fa-pen-nib"></i> ibis paint</div>
+                <div class="skill-badge"><i class="fas fa-palette"></i> Procreate</div>
+                <div class="skill-badge"><i class="fas fa-magic"></i> Clip Studio Paint</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    function showTab(tabId) {
+        // ซ่อนทุก section
+        document.querySelectorAll('.content-section').forEach(section => {
+            section.classList.remove('active-section');
+        });
+        // เอา class active ออกจากทุก tab
+        document.querySelectorAll('.tab-item').forEach(tab => {
+            tab.classList.remove('active');
+        });
+        // แสดง section ที่เลือก
+        document.getElementById(tabId).classList.add('active-section');
+        // เพิ่ม class active ให้ tab ที่คลิก
+        event.currentTarget.classList.add('active');
+    }
+</script>
+
+</body>
+</html>
