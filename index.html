@@ -340,3 +340,120 @@
 
 </body>
 </html>
+        /* -------------------------------------
+           💸 หน้าราคา (Price List)
+           ------------------------------------- */
+        .section-title {
+            text-align: center;
+            color: var(--primary-pink);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 0px rgba(255, 183, 197, 0.2);
+        }
+
+        .price-category {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border-top: 5px solid var(--primary-pink);
+            transition: 0.3s;
+        }
+
+        .price-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 183, 197, 0.2);
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.3rem;
+            color: var(--dark-text);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #f0f0f0;
+        }
+
+        .price-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #fafafa;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-name {
+            font-weight: 500;
+        }
+
+        .price-value {
+            text-align: right;
+        }
+
+        .price-normal {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        /* ลูกเล่นลดราคา */
+        .price-original {
+            text-decoration: line-through;
+            color: #ff4757; /* สีแดงขีดฆ่า */
+            font-size: 0.9rem;
+            margin-right: 8px;
+        }
+
+        .price-discount {
+            color: #2ed573; /* สีเขียวสดใส */
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .save-badge {
+            background-color: #ffeaa7;
+            color: #d35400;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            margin-left: 8px;
+            font-weight: 600;
+            animation: pulse-badge 2s infinite;
+        }
+
+        @keyframes pulse-badge {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* กล่องหมายเหตุ */
+        .note-box {
+            background: #fff3f5;
+            border-left: 4px solid var(--primary-pink);
+            padding: 20px;
+            border-radius: 0 15px 15px 0;
+            margin-top: 30px;
+            font-size: 0.95rem;
+        }
+
+        .note-box ul {
+            padding-left: 20px;
+            margin-top: 10px;
+        }
+
+        .note-box li {
+            margin-bottom: 8px;
+        }
